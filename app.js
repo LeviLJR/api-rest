@@ -16,8 +16,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var postRouter = require('./routes/post');
-app.use('/api/post', postRouter);
+var postRouter = require('./routes/tarefa');
+app.use('/api/tarefa', postRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -5,42 +5,23 @@ const sequelize = new Sequelize({
     storage: './database.sqlite'
 });
 
-const AutorModel = sequelize.define('Autor', {
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    nome: {
-        type: DataTypes.STRING,
-        allowNull: true
-    }
-})
-
-const PostModel = sequelize.define('Post', {
+const TarefaModel = sequelize.define('Tarefa', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    titulo: {
+    nome: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    texto: {
-        type: DataTypes.TEXT,
+    descricao: {
+        type: DataTypes.STRING,
         allowNull: false
     },
-    acesso:{
-        type: DataTypes.INTEGER,
-        defaultValue: 0
-    }
-})
-
-PostModel.belongsTo(AutorModel);
+});
 
 module.exports = {
     sequelize: sequelize, 
-    PostModel: PostModel, 
-    AutorModel: AutorModel
+    TarefaModel: TarefaModel
 };
